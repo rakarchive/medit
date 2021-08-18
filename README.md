@@ -30,11 +30,11 @@ $ medit <file_name?> [flags]
 - [x] Tab size (config)
 - [x] Extensible renderer
 - [x] Extensible keypress
-- [] Implement default keypress
-- [] Implement cursor movement
-- [] Implement default renderer
-- [] Add hot reloading
-- [] File handling
-- [] Selection
-- [] Command line args
-- [] Unicode support
+- [ ] Implement default keypress
+- [ ] Implement cursor movement
+- [ ] Implement default renderer
+- [ ] Add hot reloading
+- [ ] File handling
+- [ ] Selection
+- [ ] Command line args
+- [ ] Unicode support
