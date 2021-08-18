@@ -1,5 +1,5 @@
 module.exports = function (str, key) {
-  if (str === "q") {
+  if (key.name === "escape") {
     this.exit()
     process.exit(0)
   }
