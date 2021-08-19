@@ -6,5 +6,4 @@ module.exports = function (sequence, editor) {
   } else {
     editor.cursor.column += sequence.length
   }
-  //console.log(editor.buffer)
 }

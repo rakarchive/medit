@@ -70,7 +70,7 @@ class Editor {
 
     process.stdout.write(view)
 
-    readline.cursorTo(process.stdout, this.cursor.column, this.cursor.row)
+    this.renderCursor()
 
     /*
      * Show the cursor
@@ -78,6 +78,10 @@ class Editor {
      * the editor's cursor
      */
     process.stdout.write("\u001b[?25h")
+  }
+
+  renderCursor() {
+    readline.cursorTo(process.stdout, this.cursor.column, this.cursor.row)
   }
 
   /*
@@ -155,7 +159,11 @@ class Editor {
   keypressed(str, key) {
     const render = this.#keypress(str, key)
 
-    if (render) this.render()
+    if (render === 2) {
+      this.render()
+    } else if (render === 1) {
+      this.renderCursor()
+    }
   }
 
   keypress(func) {

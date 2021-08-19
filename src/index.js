@@ -1,5 +1,4 @@
 const Editor = require("./editor")
-//const keypress = require("./keypress")
 const keypress = require("../keypress/keypress")
 
 /*
@@ -24,13 +23,6 @@ const editor = new Editor({
 
 editor.keypress(keypress)
 
-/*
-* Renderer functions:
-
-editor.use(section)
-editor.use(tabToSpace)
-editor.use(cursor)
-*/
 editor.use(base)
 
 editor.start()
