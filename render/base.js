@@ -1,4 +1,14 @@
+const HIDE_CURSOR = "\u001b[?25l"
+const SHOW_CURSOR = "\u001b[?25h"
+
 module.exports = function (view, editor) {
-  console.log("\u001b[2J")
-  return editor.buffer.lines.join(editor.buffer.EOL)
+  const columns = process.stdout.columns
+  return editor.buffer.lines.reduce(
+    (accumulator, item) =>
+      accumulator +
+      (accumulator ? editor.buffer.EOL : "") +
+      item +
+      " ".repeat(columns - item.length),
+    ""
+  )
 }

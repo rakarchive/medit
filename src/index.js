@@ -1,6 +1,6 @@
 const Editor = require("./editor")
-const keypress = require("./keypress")
-//const keypress = require("../keypress/keypress")
+//const keypress = require("./keypress")
+const keypress = require("../keypress/keypress")
 
 /*
  * Renderers

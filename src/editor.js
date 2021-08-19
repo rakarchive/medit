@@ -52,10 +52,32 @@ class Editor {
       view = method(view, this)
     }
 
+    /*
+     * Hide the cursor and
+     * move it to home (0,0)
+     *
+     * This prevents cursor
+     * flashing during rendering
+     *
+     * Seperating the two
+     * escapes helps in
+     * hiding the cursor
+     * before moving it to
+     * home
+     */
+    process.stdout.write("\u001b[?25l")
     process.stdout.write("\u001b[H")
+
     process.stdout.write(view)
 
     readline.cursorTo(process.stdout, this.cursor.column, this.cursor.row)
+
+    /*
+     * Show the cursor
+     * after moving it to
+     * the editor's cursor
+     */
+    process.stdout.write("\u001b[?25h")
   }
 
   /*
