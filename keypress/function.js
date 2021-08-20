@@ -100,14 +100,16 @@ module.exports = function (key, editor) {
      * Deletation keys
      */
     case "backspace":
-      const { row, column } = backspace(cursor, editor)
-      cursor.row = row
-      cursor.column = column
-      render = 2
+      const newCursor = backspace(cursor, editor)
+      if (newCursor) {
+        const { row, column } = newCursor
+        cursor.row = row
+        cursor.column = column
+        render = 2
+      }
       break
     case "delete":
-      deletekey(cursor, editor)
-      render = 2
+      render = deletekey(cursor, editor)
       break
     /*
      * Control Keys
