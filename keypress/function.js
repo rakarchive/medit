@@ -1,4 +1,6 @@
 const type = require("../util/type")
+const backspace = require("../util/backspace")
+const deletekey = require("../util/delete")
 
 module.exports = function (key, editor) {
   const { config, cursor, buffer } = editor
@@ -93,6 +95,19 @@ module.exports = function (key, editor) {
     case "end":
       cursor.column = columns()
       render = 1
+      break
+    /*
+     * Deletation keys
+     */
+    case "backspace":
+      const { row, column } = backspace(cursor, editor)
+      cursor.row = row
+      cursor.column = column
+      render = 2
+      break
+    case "delete":
+      deletekey(cursor, editor)
+      render = 2
       break
     /*
      * Control Keys
