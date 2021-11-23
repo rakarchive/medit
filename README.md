@@ -1,3 +1,4 @@
+# NOTE: Redesign required
 # medit
 
 A simple terminal text-editor.
